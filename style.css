@@ -56,19 +56,28 @@ h1 {
   color: rgba(255,80,80,0.7);
   margin: auto;
   text-align: center;
-  /* color: rgba(255,255,255,0.9); */
-  /* color:#000; */
-  /* font-family: 'Faustina'; */
-  /* font-size: 30pt; */
-  /* font-style: italic; */
   padding: 1rem 1rem;
 }
 
 .todos {
   max-width: 600px;
-  margin: auto;
+  /* margin: auto; */
   text-align: left;
 }
+
+.todo-item:nth-child(1){
+  padding: 0 6rem;
+  text-align: center;
+}
+
+.todo-item:nth-child(5n){
+  padding: 0 4rem;
+  text-align: right;
+}
+.todo-item:nth-child(3n){
+  padding: 0 3rem;
+}
+
 
 .todo-item {
   text-decoration: none;
@@ -76,6 +85,15 @@ h1 {
   font-family: 'sawesome';
   color: rgba(255,255,255,0.9);
   font-size: 2rem;
+  transition: all 2s;
+
+  
+}
+
+.done-todo-item {
+  text-decoration: line-through;
+  color: rgba(100,0,0,0.5);
+  transition: all 2s;
 }
 
 a {

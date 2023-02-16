@@ -52,11 +52,26 @@
                 <li class="todo-item">EAT RAZORBLADES</li>
                 <li class="todo-item">DREKKA VATN</li>
                 <li class="todo-item">VERA NETTUR</li>
-                <li class="todo-item"></li>
-                <li class="todo-item"></li>    
+                <li class="todo-item">DREKKA BLÓÐ</li>
+                <li class="todo-item">DON't KILL</li>    
+                <li class="todo-item">CHORES</li>    
+                <li class="todo-item">SUP</li>    
+                <li class="todo-item">HACKA NINTENDO</li>    
+                <li class="todo-item">HACKA WINDOWS</li>    
             </ul>
         </div>
     </div>
     
+
+
+    <script>
+        let todo_elements = document.querySelectorAll('.todo-item')
+        for(let el of todo_elements){
+            el.addEventListener('click',function(event){
+                console.log(event)
+                event.target.classList.toggle('done-todo-item')
+            })
+        }
+    </script>
 </body>  
 </html>
