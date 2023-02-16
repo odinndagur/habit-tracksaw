@@ -1,0 +1,15 @@
+{
+    "name": "habit tracksaw",
+    "short_name": "saw",
+    "start_url": "index.html",
+    "display": "standalone",
+    "theme_color": "#212121",
+    "background_color": "#212121",
+    "icons": [
+      {
+        "src": "habit-tracksaw/index.html",
+        "sizes": "512",
+        "type": "image/png"
+      }
+    ]
+  }
