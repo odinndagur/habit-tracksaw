@@ -86,8 +86,10 @@ h1 {
   color: rgba(255,255,255,0.9);
   font-size: 2rem;
   transition: all 2s;
+}
 
-  
+.todo-item:hover {
+  cursor: pointer;
 }
 
 .done-todo-item {
@@ -107,3 +109,17 @@ a:hover {
   text-decoration: underline;
 }
 
+form{
+  width: 80%;
+  margin: auto;
+}
+
+input {
+  font-family: 'sawesome';
+  font-size: 3rem;
+  background-color: red;
+  border: none;
+  padding: 0.5rem;
+  background-image: url('https://t3.ftcdn.net/jpg/02/79/34/20/240_F_279342011_Hk2gsEopyLHtrsPaB0BlLZXDjiESfGqn.jpg');
+  background-size: cover;
+}

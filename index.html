@@ -41,37 +41,84 @@
     <title>habit tracksaw</title>
 </head>
 <body>
-
-
     <div class="container">
         <h1 class="heading">HABIT TRACKSAW</h1>
 
-        <div class="todos">
-            <ul>
-                <li class="todo-item">HLAUPA 3KM</li>
-                <li class="todo-item">EAT RAZORBLADES</li>
-                <li class="todo-item">DREKKA VATN</li>
-                <li class="todo-item">VERA NETTUR</li>
-                <li class="todo-item">DREKKA BLÓÐ</li>
-                <li class="todo-item">DON't KILL</li>    
-                <li class="todo-item">CHORES</li>    
-                <li class="todo-item">SUP</li>    
-                <li class="todo-item">HACKA NINTENDO</li>    
-                <li class="todo-item">HACKA WINDOWS</li>    
+        <form onsubmit="submitTodo(event)">
+            <input type="text" id="current-todo" oninput="">
+        </form>
+
+        <!-- <div class="todos"> -->
+            <ul class="todos">
+                
             </ul>
-        </div>
+        <!-- </div> -->
     </div>
     
 
 
     <script>
-        let todo_elements = document.querySelectorAll('.todo-item')
-        for(let el of todo_elements){
+        function getLocalTodos(){
+            let localTodos = JSON.parse(localStorage.getItem('local-todos'))
+            // if(!localTodos){
+            //     localTodos = ["HLAUPA 3KM",
+            //     "EAT RAZORBLADES",
+            //     "DREKKA VATN",
+            //     "VERA NETTUR",
+            //     "DREKKA BLÓÐ",
+            //     "DON't KILL",
+            //     "CHORES",
+            //     "SUP",
+            //     "HACKA NINTENDO",
+            //     "HACKA WINDOWS"]
+            //     localStorage.setItem('local-todos',JSON.stringify(localTodos))
+            // }
+            return localTodos
+        }
+
+        function addTodo(todo){
+            currentTodos = getLocalTodos()
+            localStorage.setItem('local-todos',JSON.stringify([...currentTodos,todo]))
+            el = document.createElement('li')
+            el.classList.add('todo-item')
+            el.textContent = todo
             el.addEventListener('click',function(event){
                 console.log(event)
                 event.target.classList.toggle('done-todo-item')
             })
+            todoParentElement = document.querySelector('.todos')
+            todoParentElement.appendChild(el)
+            // refreshTodos()
         }
+
+        function submitTodo(event) {
+            console.log(event)
+            event.preventDefault()
+            let inputElement = document.querySelector('#current-todo')
+            let currentTodoText = inputElement.value
+            inputElement.value = ''
+            addTodo(currentTodoText)
+            console.log(currentTodoText)
+        }
+
+        todos = getLocalTodos()
+        todoParentElement = document.querySelector('.todos')
+        for(let child of todoParentElement.children){
+            child.remove()
+        }
+        for(let todo of todos){
+            el = document.createElement('li')
+            el.classList.add('todo-item')
+            el.textContent = todo
+            el.addEventListener('click',function(event){
+                console.log(event)
+                event.target.classList.toggle('done-todo-item')
+            })
+            todoParentElement.appendChild(el)
+        }
+
+        
+
     </script>
 </body>  
 </html>
